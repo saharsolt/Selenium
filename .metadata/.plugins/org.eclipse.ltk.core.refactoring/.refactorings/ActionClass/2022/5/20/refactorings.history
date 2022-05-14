@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;action.Actions&apos; to &apos;CustomActions&apos;&#x0D;&#x0A;- Original project: &apos;ActionClass&apos;&#x0D;&#x0A;- Original element: &apos;action.Actions&apos;&#x0D;&#x0A;- Renamed element: &apos;action.CustomActions&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Actions&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;action{Actions.java[Actions" matchStrategy="1" name="CustomActions" qualified="false" references="true" similarDeclarations="false" stamp="1652210339939" textual="false" version="1.0"/>
+</session>

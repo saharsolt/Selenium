@@ -1,0 +1,5 @@
+package testNGListener;
+
+public sealed class Listener {
+
+}

@@ -1,0 +1,25 @@
+package testNGListener;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class BaseTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver = new FirefoxDriver();
+		System.setProperty("webdriver.firefox.driver", "D:\\Selenium\\webdriver\\geckodriver.exe");
+		String url = "https://www.amazon.com/";
+		driver.get(url);
+		WebElement signin = driver.findElement(By.xpath("/html/body/div[1]/header/div/div[3]/div[13]/div[2]/a/span"));
+		signin.click();
+		WebElement checkbox = driver.findElement(By.id("ap_email"));
+		checkbox.sendKeys("sahar.solt@gmail.com");
+		WebElement button = driver.findElement(By.id("continue"));
+		button.click();
+		
+	}
+
+}
