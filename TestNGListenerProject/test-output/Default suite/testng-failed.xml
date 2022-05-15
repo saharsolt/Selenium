@@ -3,6 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
+      <class name="testNGListener.FirstTest">
+        <methods>
+          <include name="f"/>
+          <include name="TestToFail"/>
+          <include name="login"/>
+        </methods>
+      </class> <!-- testNGListener.FirstTest -->
       <class name="testNGListener.BaseTest">
         <methods>
           <include name="login"/>

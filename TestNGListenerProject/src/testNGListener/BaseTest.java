@@ -6,7 +6,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 public class BaseTest {
-  @Test
+	WebDriver driver = new FirefoxDriver();
+	@Test
   public void login() {
 	WebDriver driver = new FirefoxDriver();
 	System.setProperty("webdriver.firefox.driver", "D:\\Selenium\\webdriver\\geckodriver.exe");
@@ -14,13 +15,13 @@ public class BaseTest {
 	driver.get(url);
 	WebElement signin = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div[2]/span/span/a"));
 	signin.click();
-	String email = "your_email@gmail.com";
+	String email = "@gmail.com";
 	WebElement checkbox = driver.findElement(By.id("ap_email"));
 	checkbox.sendKeys(email);
 	WebElement button = driver.findElement(By.id("continue"));
 	button.click();
 	WebElement passbox = driver.findElement(By.id("ap_password"));
-	passbox.sendKeys("your_password");
+	passbox.sendKeys("****");
 	WebElement login = driver.findElement(By.id("signInSubmit"));
 	login.click();
   }
