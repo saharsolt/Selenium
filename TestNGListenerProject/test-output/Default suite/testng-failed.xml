@@ -6,15 +6,8 @@
       <class name="testNGListener.FirstTest">
         <methods>
           <include name="f"/>
-          <include name="TestToFail"/>
-          <include name="login"/>
         </methods>
       </class> <!-- testNGListener.FirstTest -->
-      <class name="testNGListener.BaseTest">
-        <methods>
-          <include name="login"/>
-        </methods>
-      </class> <!-- testNGListener.BaseTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
