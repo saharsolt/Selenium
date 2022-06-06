@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed May 18 23:02:16 EEST 2022</td>
+<td>Started on:</td><td>Mon Jun 06 12:56:39 EEST 2022</td>
 </tr>
-<tr><td>Total time:</td><td>24 seconds (24376 ms)</td>
+<tr><td>Total time:</td><td>30 seconds (30786 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,12 +76,10 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='testNGListener.FirstTest.f()'><b>f</b><br>Test class: testNGListener.FirstTest</td>
-<td><div><pre>org.openqa.selenium.support.ui.UnexpectedTagNameException: Element should have been &quot;select&quot; but was &quot;a&quot;
-Build info: version: &apos;4.1.4&apos;, revision: &apos;535d840ee2&apos;
-System info: host: &apos;DESKTOP-ULQ0HFL&apos;, ip: &apos;192.168.220.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;18.0.1.1&apos;
-Driver info: driver.version: unknown
-	at org.openqa.selenium.support.ui.Select.&lt;init&gt;(Select.java:49)
-	at testNGListener.FirstTest.f(FirstTest.java:43)
+<td><div><pre>java.util.NoSuchElementException
+	at java.base/java.util.LinkedHashMap$LinkedHashIterator.nextNode(LinkedHashMap.java:758)
+	at java.base/java.util.LinkedHashMap$LinkedKeyIterator.next(LinkedHashMap.java:778)
+	at testNGListener.FirstTest.f(FirstTest.java:58)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -108,13 +106,11 @@ Driver info: driver.version: unknown
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace17331878", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace17331878'><pre>org.openqa.selenium.support.ui.UnexpectedTagNameException: Element should have been &quot;select&quot; but was &quot;a&quot;
-Build info: version: &apos;4.1.4&apos;, revision: &apos;535d840ee2&apos;
-System info: host: &apos;DESKTOP-ULQ0HFL&apos;, ip: &apos;192.168.220.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;18.0.1.1&apos;
-Driver info: driver.version: unknown
-	at org.openqa.selenium.support.ui.Select.&lt;init&gt;(Select.java:49)
-	at testNGListener.FirstTest.f(FirstTest.java:43)
+</pre></div><a href='#' onClick='toggleBox("stack-trace837719796", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace837719796'><pre>java.util.NoSuchElementException
+	at java.base/java.util.LinkedHashMap$LinkedHashIterator.nextNode(LinkedHashMap.java:758)
+	at java.base/java.util.LinkedHashMap$LinkedKeyIterator.next(LinkedHashMap.java:778)
+	at testNGListener.FirstTest.f(FirstTest.java:58)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -142,7 +138,7 @@ Driver info: driver.version: unknown
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>24</td>
+<td>30</td>
 <td>testNGListener.FirstTest@4116aac9</td></tr>
 </table><p>
 </body>
