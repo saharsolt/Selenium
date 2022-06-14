@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestNG Session Test Automation Suite">
+  <test name="Different TestNG Feature Test">
+  
+    <classes>
+      <class name="testNGListener.AmazonTest"/>
+      <class name="testNGListener.AmazonTitleTest"/>
+      <class name="testNGListener.AnnotationTest"/>
+      <class name="testNGListener.ExceptionTimeOutTest"/>
+      <class name="testNGListener.InvocationCountTest"/>
+      <class name="testNGListener.TestNGFeatures"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
