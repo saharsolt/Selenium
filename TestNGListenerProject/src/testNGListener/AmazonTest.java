@@ -24,28 +24,38 @@ public void setup() {
 	driver.get("https://www.amazon.com/");
 }
 
-@Test  //2 
+@Test(priority=1,groups="Title")  //2 
 public void getAmazonTitle() {
 	String title = driver.getTitle();
 	System.out.println(title);
 }
 
-@Test  //5
+@Test(priority=3,groups="Logo")  //8
 public void amazonLogoTest() {
 	boolean b = driver.findElement(By.xpath("//*[@id=\"nav-logo-sprites\"]")).isDisplayed();
 	System.out.println(b);
 }
 
-@Test  //8
+@Test(priority=2,groups="Links") //5
 public void sellingLink() {
 	boolean b = driver.findElement(By.linkText("Sell products on Amazon")).isDisplayed();
 	System.out.println(b);
 }
 
-@Test  //11
+@Test(priority=3,groups="Links")  //11
 public void mailLink() {
 	boolean b = driver.findElement(By.linkText("mail")).isDisplayed();
 	System.out.println(b);
+}
+
+@Test(priority=3,groups="Test")
+public void test1() {
+	System.out.println("test1");
+}
+
+@Test(priority=3,groups="Test")
+public void test2() {
+	System.out.println("test2");
 }
 
 @AfterMethod  //3 6 9 12
