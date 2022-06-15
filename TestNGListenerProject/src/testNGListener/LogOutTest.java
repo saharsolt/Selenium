@@ -1,22 +1,16 @@
 package testNGListener;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.test.utility.SearchTest;
+public class LogOutTest {
 
-public class SecondTest {
-	WebDriver driver;
+WebDriver driver;
 	
 	@BeforeTest
 	public void setup() {
@@ -27,11 +21,6 @@ public class SecondTest {
 		String url = "https://www.amazon.com/";
 		driver.get(url);
 	}
-	
-//	@Test(dependsOnMethods = {"login"})
-//	public void searchItems() {
-//		System.out.println("Login to the Website");
-//	}
 	
 	@Test
 	public void login() {
@@ -48,37 +37,16 @@ public class SecondTest {
 		WebElement login = driver.findElement(By.id("signInSubmit"));
 		login.click();	
   }
-	
-	@DataProvider
-	public Iterator<String> getTestData() {
-		ArrayList<String> data = SearchTest.getDataFromFile();
-		return data.iterator();
-	}
-	
-	@Test(dataProvider="getTestData")
-	public void search(String searchItem) {
-		Actions action = new Actions(driver);
-		WebElement searchbox = driver.findElement(By.id("twotabsearchtextbox"));
-		action.moveToElement(searchbox).perform();
-		searchbox.clear();
-		searchbox.sendKeys(searchItem);
-		WebElement searchbtn = driver.findElement(By.id("nav-search-submit-button"));
-		searchbtn.click();
-	}
-	
 	@Test(dependsOnMethods="login")
 	public void logOut() throws InterruptedException {
 		
 		Actions action = new Actions(driver);
 		WebElement hoveritem = driver.findElement(By.xpath("//span[normalize-space()='Account & Lists']"));
 		action.moveToElement(hoveritem).perform();
-		Thread.sleep(2000);
-		WebElement signOut = driver.findElement(By.xpath("//span[normalize-space()='Sign Out']"));
-		signOut.click();
+		Thread.sleep(500);
+		WebElement b = driver.findElement(By.xpath("//span[normalize-space()='Sign Out']"));
+		b.click();
 	}
 	
-	@AfterTest
-	public void tearDown() {
-		driver.quit();
-	}
+	
 }
