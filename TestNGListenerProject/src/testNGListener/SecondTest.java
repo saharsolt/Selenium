@@ -2,7 +2,6 @@ package testNGListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,15 +10,17 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import com.test.utility.SearchTest;
 
+@Listeners(testNGListener.Listener.class)
 public class SecondTest {
 	WebDriver driver;
 	
 	@BeforeTest
-	public void setup() {
+	public void setup() throws InterruptedException {
+		Thread.sleep(2000);
 		System.setProperty("webdriver.firefox.driver", "D:\\Selenium\\webdriver\\geckodriver.exe");
 		driver= new FirefoxDriver();
 		driver.manage().window().maximize();
@@ -27,11 +28,6 @@ public class SecondTest {
 		String url = "https://www.amazon.com/";
 		driver.get(url);
 	}
-	
-//	@Test(dependsOnMethods = {"login"})
-//	public void searchItems() {
-//		System.out.println("Login to the Website");
-//	}
 	
 	@Test
 	public void login() {

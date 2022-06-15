@@ -10,24 +10,28 @@ public class Listener implements ITestListener {
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestStart(result);
+		System.out.println(result.getName()+" test case started");
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestSuccess(result);
+		System.out.println("The name of the testcase passed is :"+result.getName());
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestFailure(result);
+		System.out.println("The name of the testcase failed is :"+result.getName());
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestSkipped(result);
+		System.out.println("The name of the testcase Skipped is :"+result.getName());
 	}
 
 	@Override

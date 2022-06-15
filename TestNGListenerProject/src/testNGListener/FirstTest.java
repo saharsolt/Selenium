@@ -2,40 +2,51 @@ package testNGListener;
 
 import org.testng.annotations.Test;
 
-import java.util.Iterator;
-import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 
 
 @Listeners(testNGListener.Listener.class)
 public class FirstTest{
-  
-  @Test
-  public void f() {
-	  WebDriver driver = new FirefoxDriver();
-	  System.setProperty("webdriver.firefox.driver", "D:\\Selenium\\webdriver\\geckodriver.exe");
-	  String url = "https://www.amazon.com/";
-	  driver.get(url);
-	  WebElement signin = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div[2]/span/span/a"));
-	  signin.click();
-	  String email = "sahar@gmail.com";
-	  WebElement checkbox = driver.findElement(By.id("ap_email"));
-	  checkbox.sendKeys(email);
-	  WebElement button = driver.findElement(By.id("continue"));
-	  button.click();
-	  WebElement passbox = driver.findElement(By.id("ap_password"));
-	  passbox.sendKeys("****");
-	  WebElement login = driver.findElement(By.id("signInSubmit"));
-	  login.click();
+	
+	WebDriver driver;
+	
+	@BeforeTest
+	public void setup() throws InterruptedException {
+		System.setProperty("webdriver.firefox.driver", "D:\\Selenium\\webdriver\\geckodriver.exe");
+		driver= new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		String url = "https://www.amazon.com/";
+		driver.get(url);
+		Thread.sleep(2000);
+	}
+	@Test(priority=1)
+	public void login() {
+	
+		WebElement signin = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div[2]/span/span/a"));
+		signin.click();
+		String email = "sahar.solt@gmail.com";
+		WebElement checkbox = driver.findElement(By.id("ap_email"));
+		checkbox.sendKeys(email);
+		WebElement button = driver.findElement(By.id("continue"));
+		button.click();
+		WebElement passbox = driver.findElement(By.id("ap_password"));
+		passbox.sendKeys("*");
+		WebElement login = driver.findElement(By.id("signInSubmit"));
+		login.click();	
+  }
+	
+	@Test(priority=2)
+	public void searchItem() throws InterruptedException {
 	  Actions action = new Actions(driver);
-	  System.out.println("sahar");
 	  WebElement searchbox = driver.findElement(By.id("twotabsearchtextbox"));
 	  action.moveToElement(searchbox).perform();
 	  searchbox.sendKeys("bicycle");
@@ -48,22 +59,37 @@ public class FirstTest{
 	  addbtn.click();
 	  WebElement cardbtn = driver.findElement(By.cssSelector("#sw-gtc > span > a"));
 	  cardbtn.click();
-	 
-	  driver.findElement(By.xpath("/descendant::input[@value = 'Compare with similar items']")).click();
-	
 	  
-	    WebElement addsimilar = driver.findElement(By.className("a-button-input"));
-	    addsimilar.click();
-//	  WebElement deleteitem = driver.findElement(By.cssSelector("#sc-item-C6afce21c-a366-4b94-92ee-d910a112f53e > div.sc-list-item-content > div > div.a-column.a-span10 > div > div > div.a-fixed-left-grid-col.a-col-right > div.a-row.sc-action-links > span.a-size-small.sc-action-delete > span > input"));
-//	  deleteitem.click();
-//	  
-//	  WebElement hoveritem = driver.findElement(By.id("nav-link-accountList-nav-line-1"));
-//	  action.moveToElement(hoveritem).perform();
-//	  WebElement signoutbtn = driver.findElement(By.cssSelector("#nav-item-signout > span"));
-//	  signoutbtn.click();
+	  WebElement element=driver.findElement(By.xpath("/descendant::input[@value = 'Compare with similar items']"));
+	  element.click();
+	  Thread.sleep(2000);
+	  Actions actions = new Actions(driver);
+	  actions.moveToElement(element).perform();
 	  
-	  //driver.close();
+	  Thread.sleep(5000);
 	  
+	  WebElement addsimilar = driver.findElement(By.xpath("/html/body/div[5]/div/div/div/div/div/div/table/tbody/tr[6]/td[3]"));
+	  addsimilar.click();
+	  Thread.sleep(5000);
+	  WebElement deleteitem = driver.findElement(By.xpath("/descendant::input[@value = 'Delete']"));
+	  deleteitem.click();  
+	  Thread.sleep(5000);
+  }
+  
+  	@Test(priority=3, dependsOnMethods="searchItem")
+		public void logOut() throws InterruptedException {
+		
+			Actions action = new Actions(driver);
+			WebElement hoveritem = driver.findElement(By.xpath("//span[normalize-space()='Account & Lists']"));
+			action.moveToElement(hoveritem).perform();
+			Thread.sleep(2000);
+			WebElement signOut = driver.findElement(By.xpath("//span[normalize-space()='Sign Out']"));
+			signOut.click();
+	}
+  
+  	@AfterTest
+  	public void tearDown() {
+  		driver.quit();
   }
 }
 
