@@ -5,7 +5,10 @@
     <classes>
       <class name="testNGListener.FirstTest">
         <methods>
-          <include name="f"/>
+          <include name="searchItem"/>
+          <include name="tearDown"/>
+          <include name="logOut"/>
+          <include name="setup"/>
         </methods>
       </class> <!-- testNGListener.FirstTest -->
     </classes>
