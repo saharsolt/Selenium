@@ -29,7 +29,7 @@ public class SecondTest {
 		driver.get(url);
 	}
 	
-	@Test
+	@Test(priority=1)
 	public void login() {
 	
 		WebElement signin = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div[2]/span/span/a"));
@@ -40,7 +40,7 @@ public class SecondTest {
 		WebElement button = driver.findElement(By.id("continue"));
 		button.click();
 		WebElement passbox = driver.findElement(By.id("ap_password"));
-		passbox.sendKeys("******");
+		passbox.sendKeys("*");
 		WebElement login = driver.findElement(By.id("signInSubmit"));
 		login.click();	
   }
@@ -51,7 +51,7 @@ public class SecondTest {
 		return data.iterator();
 	}
 	
-	@Test(dataProvider="getTestData")
+	@Test(dataProvider="getTestData", priority=2)
 	public void search(String searchItem) {
 		Actions action = new Actions(driver);
 		WebElement searchbox = driver.findElement(By.id("twotabsearchtextbox"));
@@ -62,9 +62,9 @@ public class SecondTest {
 		searchbtn.click();
 	}
 	
-	@Test(dependsOnMethods="login")
+	@Test(priority=3)
 	public void logOut() throws InterruptedException {
-		
+		Thread.sleep(3000);
 		Actions action = new Actions(driver);
 		WebElement hoveritem = driver.findElement(By.xpath("//span[normalize-space()='Account & Lists']"));
 		action.moveToElement(hoveritem).perform();

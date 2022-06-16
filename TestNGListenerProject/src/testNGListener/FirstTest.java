@@ -46,6 +46,7 @@ public class FirstTest{
 	
 	@Test(priority=2)
 	public void searchItem() throws InterruptedException {
+		Thread.sleep(2000);
 	  Actions action = new Actions(driver);
 	  WebElement searchbox = driver.findElement(By.id("twotabsearchtextbox"));
 	  action.moveToElement(searchbox).perform();
@@ -59,7 +60,7 @@ public class FirstTest{
 	  addbtn.click();
 	  WebElement cardbtn = driver.findElement(By.cssSelector("#sw-gtc > span > a"));
 	  cardbtn.click();
-	  
+	  Thread.sleep(1000);
 	  WebElement element=driver.findElement(By.xpath("/descendant::input[@value = 'Compare with similar items']"));
 	  element.click();
 	  Thread.sleep(2000);
@@ -73,12 +74,11 @@ public class FirstTest{
 	  Thread.sleep(5000);
 	  WebElement deleteitem = driver.findElement(By.xpath("/descendant::input[@value = 'Delete']"));
 	  deleteitem.click();  
-	  Thread.sleep(5000);
   }
   
-  	@Test(priority=3, dependsOnMethods="searchItem")
+  	@Test(priority=3)
 		public void logOut() throws InterruptedException {
-		
+  			Thread.sleep(2000);
 			Actions action = new Actions(driver);
 			WebElement hoveritem = driver.findElement(By.xpath("//span[normalize-space()='Account & Lists']"));
 			action.moveToElement(hoveritem).perform();
